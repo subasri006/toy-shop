@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>More Toys</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(90deg, #f6d365, #fda085);
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5em;
+      color: #6c5ce7;
+      margin: 30px 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .toy-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .toy-card {
+      background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+      border-radius: 15px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    .toy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .toy-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .toy-card h3 {
+      font-size: 1.2em;
+      color: #2d3436;
+      margin-bottom: 8px;
+    }
+
+    .toy-card p {
+      font-weight: bold;
+      color: #d63031;
+      margin-bottom: 12px;
+    }
+
+    .toy-card button {
+      background-color: #00b894;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toy-card button:hover {
+      background-color: #00997a;
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-title">🪁 More Toys for You!</div>
+
+  <div class="toy-container">
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 2.jpg" alt="Doll" />
+      <h3>tcartoon truck</h3>
+      <p>$18</p>
+      <button onclick="addToCart('cartoon truck', 18, './src/truck 2.jpg')">Add to Cart</button>
+    </div>
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 3.jpg" alt="" />
+      <h3>yellow truck</h3>
+      <p>$20</p>
+      <button onclick="addToCart('yellow truck', 20, './src/truck 3.jpg')">Add to Cart</button>
+    </div>
+
+     <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 4.jpg" alt="" />
+      <h3>pink truck</h3>
+      <p>$35</p>
+      <button onclick="addToCart('pink truck', 35, './src/truck 4.jpg')">Add to Cart</button>
+    </div>
+
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 5.jpg" alt="" />
+      <h3>truck 1</h3>
+      <p>$15</p>
+      <button onclick="addToCart('truck 1', 15, './src/truck 5.jpg')">Add to Cart</button>
+    </div>
+
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 6.jpg" alt="" />
+      <h3>soil truck </h3>
+      <p>$27</p>
+      <button onclick="addToCart('soil truck', 27, './src/truck 6.jpg')">Add to Cart</button>
+    </div>
+
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 7.jpg" alt="" />
+      <h3>blue truck</h3>
+      <p>$30</p>
+      <button onclick="addToCart('blue truck', 30, './src/truck 7.jpg')">Add to Cart</button>
+    </div>
+
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 8.jpg" alt="" />
+      <h3>jcb truck</h3>
+      <p>$27</p>
+      <button onclick="addToCart('jcb truck', 27, './src/truck 8.jpg')">Add to Cart</button>
+    </div>
+
+
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 9.jpg" alt="" />
+      <h3>load truck</h3>
+      <p>$25</p>
+      <button onclick="addToCart('load truck', 25, './src/truck 9.jpg')">Add to Cart</button>
+
+    </div>
+    
+    <div class="toy-card" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+      <img class="toy-img" src="./src/truck 11.jpg" alt="" />
+      <h3>fire truck</h3>
+      <p>$30</p>
+      <button onclick="addToCart('fire truck', 30, './src/truck 11.jpg')">Add to Cart</button>
+    </div>
+
+    </div>
+
+
+
+
+  </div>
+
+  <script>
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem('toyCart')) || [];
+      const existingIndex = cart.findIndex(item => item.name === name);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({name, price, img, quantity: 1});
+      }
+      localStorage.setItem('toyCart', JSON.stringify(cart));
+      window.location.href = 'index 4.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toy Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to right, #fceabb, #f8b500);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5em;
+      color: #ff5f6d;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+
+    .toy-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px 10px 40px;
+    }
+
+    .toy-card {
+      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .toy-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .toy-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .toy-card h3 {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .toy-card p {
+      font-weight: bold;
+      color: #ff4d4d;
+      margin-bottom: 15px;
+    }
+
+    .toy-card button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .add-to-cart-btn {
+      background-color: #ff5f6d;
+      color: white;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #e04855;
+    }
+
+    .view-more-btn {
+      background-color: #6c5ce7;
+      color: white;
+    }
+
+    .view-more-btn:hover {
+      background-color: #4e3dcf;
+    }
+
+    .cart-message {
+      text-align: center;
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #008000;
+     
+    }
+    .main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 15px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.main-nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+}
+  </style>
+</head>
+<body>
+   <nav class="main-nav">
+    <a href="index 15.html">👩‍💻 about</a>
+    <a href="index 13.html">📬 Contact</a>
+    <a href="index 2.html">home🏠</a>
+    <a href="index 14.html">sign up✍</a>
+  </nav>
+
+  <div class="section-title">🧸 Explore Our Toy Shop</div>
+
+  <div class="toy-container">
+
+    <!-- Teddy Bear -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/teddy 1.png" alt="Teddy Bear" />
+      <h3>Teddy Bear</h3>
+      <p>$10</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Teddy Bear', 10, './src/teddy 1.png')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 6.html'">View More Toys</button>
+    </div>
+
+    <!-- RC Car -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/car 1.webp" alt="RC Car" />
+      <h3>RC Car</h3>
+      <p>$20</p>
+      <button class="add-to-cart-btn" onclick="addToCart('RC Car', 20, './src/car 1.webp')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 7.html'">View More Toys</button>
+    </div>
+
+    <!-- Balls -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/ball1.png" alt="Balls" />
+      <h3>Balls</h3>
+      <p>$5</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Balls', 5, './src/ball1.png')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 8.html'">View More Toys</button>
+    </div>
+
+    <!-- Bike -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/bike 1.png " alt="Bike" />
+      <h3>Bike</h3>
+      <p>$15</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Bike', 15, './src/bike 1.png')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 9.html'">View More Toys</button>
+    </div>
+
+    <!-- Truck -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/truck 1.jpg" alt="Truck" />
+      <h3>Truck</h3>
+      <p>$35</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Truck', 35, './src/truck 1.jpg')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 10.html'">View More Toys</button>
+    </div>
+
+    <!-- Blocks -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/block 1.jpg" alt="Blocks" />
+      <h3>Blocks</h3>
+      <p>$25</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Blocks', 25, './src/block 1.jpg')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 11.html'">View More Toys</button>
+    </div>
+
+    <!-- Parbie -->
+    <div class="toy-card">
+      <img class="toy-img" src="./src/parbie 1.avif" alt="Parbie" />
+      <h3>Parbie</h3>
+      <p>$40</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Parbie', 40, './src/parbie 1.avif')">Add to Cart</button>
+      <button class="view-more-btn" onclick="location.href='index 12.html'">View More Toys</button>
+    </div>
+
+  </div>
+
+  <div id="cart-message" class="cart-message"></div>
+
+  <script>
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem('toyCart')) || [];
+      const existingIndex = cart.findIndex(item => item.name === name);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ name, price, img, quantity: 1 });
+      }
+      localStorage.setItem('toyCart', JSON.stringify(cart));
+      window.location.href = 'index 4.html'; // redirect to cart or confirm page
+    }
+  </script>
+
+</head>
+<body style="text-align: center; padding-top: 100px; font-family: sans-serif;">
+  <h1>🎉 Welcome to ToyWorld! 🎉</h1>
+  <p>Thank you for signing up. Let the fun begin!</p>
+</body>
+</html>
+
+
+
+</body>
+</html>
+

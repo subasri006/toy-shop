@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to the Toy Store!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      text-align: center;
+      padding-top: 100px;
+      overflow: hidden;
+      animation: backgroundFade 6s ease-in-out infinite alternate;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 48px;
+      margin-bottom: 10px;
+      animation: bounceIn 1.2s ease-out;
+    }
+
+    p {
+      font-size: 20px;
+      color: #34495e;
+      margin-bottom: 40px;
+      animation: textFadeIn 2s ease forwards;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #ff6f61;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: buttonPop 1.5s ease-out;
+      display: inline-block;
+    }
+
+    a:hover {
+      background-color: #e74c3c;
+      transform: scale(1.1) rotate(-1deg);
+    }
+
+    /* Animations */
+    @keyframes bounceIn {
+      0% { opacity: 0; transform: scale(0.3) translateY(-100px); }
+      60% { opacity: 1; transform: scale(1.1) translateY(20px); }
+      80% { transform: scale(0.95) translateY(-10px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    @keyframes buttonPop {
+      0% { opacity: 0; transform: scale(0.6) rotate(-10deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(3deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+
+    @keyframes textFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes backgroundFade {
+      from { background: linear-gradient(to right, #fbc2eb, #a6c1ee); }
+      to { background: linear-gradient(to right, #a1c4fd, #c2e9fb); }
+    }
+
+    /* CSS Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      border-radius: 50% 50% 50% 50%;
+      width: 50px;
+      height: 70px;
+      opacity: 0.8;
+      animation: floatUp ease-in infinite;
+      z-index: 0;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #444;
+      transform: translateX(-50%);
+    }
+
+    /* Custom colors and animations for each balloon */
+    .b1 {
+      background: #ff4d6d;
+      left: 10%;
+      animation-duration: 12s;
+    }
+
+    .b2 {
+      background: #6a89cc;
+      left: 30%;
+      animation-duration: 15s;
+      animation-delay: 2s;
+    }
+
+    .b3 {
+      background: #f7d794;
+      left: 50%;
+      animation-duration: 10s;
+      animation-delay: 1s;
+    }
+
+    .b4 {
+      background: #ffafcc;
+      left: 70%;
+      animation-duration: 18s;
+      animation-delay: 3s;
+    }
+
+    .b5 {
+      background: #00b894;
+      left: 85%;
+      animation-duration: 14s;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-300px) rotate(10deg);
+      }
+      75% {
+        transform: translateY(-500px) rotate(-10deg);
+      }
+      100% {
+        transform: translateY(-800px) rotate(0deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎈 Floating Balloons -->
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+  <div class="balloon b5"></div>
+
+  <!-- 🎉 Welcome Content -->
+  <h1>🏠 Welcome to the Toy Store!</h1>
+  <p>Click below to explore our collection of toys.</p>
+  <a href="index 3.html">🧸 Visit the Toy Shop</a>
+
+
+</body>
+</html>

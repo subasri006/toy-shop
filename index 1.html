@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Toy World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffe4f3, #c9e4ff, #fff8b0);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .welcome-container {
+      text-align: center;
+      animation: fadeInPop 1.5s ease-out;
+    }
+
+    .welcome-container h1 {
+      font-size: 3.5em;
+      color: #ff4d79;
+      text-shadow: 0 0 10px #ffaad4;
+      animation: bounceGlow 2.5s infinite;
+    }
+
+    .welcome-container p {
+      font-size: 1.4em;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .enter-btn {
+      background: linear-gradient(45deg, #ff4d79, #ffad33);
+      color: white;
+      padding: 14px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .enter-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    @keyframes fadeInPop {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes bounceGlow {
+      0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px #ffaad4;
+      }
+      50% {
+        transform: translateY(-12px);
+        text-shadow: 0 0 18px #ffaad4;
+      }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-container">
+    <h1>🎈 Toy World</h1>
+    <p>Where imagination meets play!</p>
+    <button class="enter-btn" onclick="enterStore()">Enter Store</button>
+  </div>
+
+  <script>
+    function enterStore() {
+      window.location.href = "index 2.html"
+    }
+  </script>
+
+</body>
+</html>

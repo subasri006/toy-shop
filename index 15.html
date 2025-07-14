@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | ToyWorld</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <section class="about-container">
+    <div class="floating-shapes">
+      <div class="shape circle"></div>
+      <div class="shape star"></div>
+      <div class="shape block"></div>
+      <div class="shape circle small"></div>
+      <div class="shape star small"></div>
+    </div>
+
+    <div class="about-content">
+      <h1 class="bounce">Welcome to ToyWorld!</h1>
+      <p class="fade delay-1">At ToyWorld, we believe every child deserves a world full of fun, imagination, and endless adventure.</p>
+      <p class="fade delay-2">Founded in 2015, we specialize in high-quality, safe, and educational toys that bring joy to families everywhere.</p>
+      <p class="fade delay-3">Explore our magical world and find your child’s next favorite thing to play, learn, and grow!</p>
+      
+      <a href="index 3.html" class="magic-button">home🏠</a>
+    </div>
+  </section>
+</body>
+</html>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(120deg, #fef6ff, #ffdde1);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.about-container {
+  position: relative;
+  padding: 100px 20px;
+  text-align: center;
+  z-index: 1;
+  color: #333;
+}
+
+.about-content h1 {
+  font-size: 3em;
+  color: #ff4e91;
+  margin-bottom: 20px;
+  animation: bounce 2s ease infinite;
+}
+
+.about-content p {
+  font-size: 1.2em;
+  margin: 10px auto;
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.fade.delay-1 { animation-delay: 1s; }
+.fade.delay-2 { animation-delay: 2s; }
+.fade.delay-3 { animation-delay: 3s; }
+
+.magic-button {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 2s forwards;
+  animation-delay: 4s;
+  opacity: 0;
+}
+
+.magic-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Shapes */
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.3;
+  border-radius: 50%;
+  animation: floatUp 10s linear infinite;
+}
+
+.circle {
+  background: #ff6ec4;
+  width: 100px;
+  height: 100px;
+  left: 10%;
+  top: 80%;
+}
+
+.circle.small {
+  width: 40px;
+  height: 40px;
+  left: 70%;
+  top: 90%;
+  animation-duration: 12s;
+}
+
+.block {
+  background: #ffd93d;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  left: 50%;
+  top: 85%;
+  animation-duration: 14s;
+}
+
+.star {
+  background: #70e1f5;
+  width: 60px;
+  height: 60px;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 
+    50% 70%, 21% 91%, 
+    32% 57%, 2% 35%, 
+    39% 35%
+  );
+  left: 30%;
+  top: 95%;
+}
+
+.star.small {
+  width: 40px;
+  height: 40px;
+  left: 80%;
+  top: 92%;
+  animation-duration: 16s;
+}
+
+/* Background Sparkle */
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffffff44 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: sparkleMove 20s linear infinite;
+  z-index: 0;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .about-content h1 {
+    font-size: 2em;
+  }
+  .magic-button {
+    font-size: 1em;
+    padding: 12px 25px;
+  }
+}
+</style>

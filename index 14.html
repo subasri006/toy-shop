@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | ToyWorld</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(120deg, #ffe29a, #ffa8a8, #a0e7e5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background-color: #fddde6;
+      border-radius: 15px;
+      padding: 40px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: floatUp 1s ease-out forwards;
+    }
+
+    h1 {
+      color: #ff4081;
+      text-align: center;
+      margin-bottom: 30px;
+      animation: bounce 2s infinite;
+    }
+
+    table {
+      width: 100%;
+      color: #333;
+      font-size: 1.1em;
+    }
+
+    td {
+      padding: 12px 0;
+    }
+
+    input, select {
+      width: 95%;
+      padding: 10px;
+      border: 2px solid #ff90b3;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1em;
+      background-color: #fff0f5;
+    }
+
+    .button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(45deg, #ff6ec4, #7873f5);
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>SIGN UP TO PURCHASE AMAZING TOYS 🤩❤️</h1>
+    <form action="index 16.html" method="GET">
+      <table>
+        <tr>
+          <td>NAME:</td>
+          <td><input type="text" placeholder="Enter your name" required></td>
+        </tr>
+        <tr>
+          <td>E-mail:</td>
+          <td><input type="email" placeholder="Enter your email" required></td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td><input type="tel" placeholder="Enter your number" required></td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td><input type="text" placeholder="Enter your address" required></td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <select required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+     
+
+      <button class="button" type="submit">Submit</button>
+    </form>
+    </div>
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart - Toy Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff7f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #ff5f6d;
+      margin-bottom: 25px;
+    }
+
+    .cart-container {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 10px 25px rgba(255, 95, 109, 0.3);
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ff5f6d44;
+      padding: 15px 0;
+      gap: 15px;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(255, 95, 109, 0.2);
+    }
+
+    .item-info {
+      flex-grow: 1;
+    }
+
+    .item-name {
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #ff5f6d;
+      margin-bottom: 5px;
+    }
+
+    .item-price {
+      font-weight: 600;
+      color: #ff4d4d;
+      margin-bottom: 6px;
+    }
+
+    .quantity-input {
+      width: 60px;
+      font-size: 1em;
+      padding: 5px 8px;
+      border-radius: 8px;
+      border: 2px solid #ff5f6d;
+      text-align: center;
+      outline: none;
+      color: #333;
+    }
+
+    .remove-btn {
+      background-color: #ff5f6d;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .remove-btn:hover {
+      background-color: #e04855;
+    }
+
+    .total-price {
+      text-align: right;
+      margin-top: 20px;
+      font-size: 1.5em;
+      font-weight: 800;
+      color: #ff4d4d;
+    }
+
+    .checkout-btn {
+      margin-top: 30px;
+      background: linear-gradient(45deg, #ff5f6d, #ff2a4a);
+      color: white;
+      border: none;
+      padding: 15px 0;
+      font-size: 1.3em;
+      font-weight: 700;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 300px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 42, 74, 0.8);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      box-shadow: 0 12px 30px rgba(255, 42, 74, 1);
+    }
+
+    /* Back to Home button style and animation */
+    .back-to-home {
+      margin-top: 30px;
+      background: linear-gradient(45deg, #00cec9, #00b894);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 204, 201, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      align-self: center;
+    }
+
+    .back-to-home:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 25px rgba(0, 204, 201, 0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart 🛒</h1>
+  <div class="cart-container" id="cart-container">
+    <!-- Cart items will be injected here -->
+  </div>
+
+  <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+
+  <button class="back-to-home" onclick="goHome()">Back to Home</button>
+
+<script>
+  // Load cart from localStorage and display
+  function loadCart() {
+    const cartContainer = document.getElementById('cart-container');
+    const cart = JSON.parse(localStorage.getItem('toyCart')) || [];
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+      document.querySelector('.checkout-btn').style.display = 'none';
+      return;
+    }
+
+    document.querySelector('.checkout-btn').style.display = 'block';
+
+    let totalPrice = 0;
+    cartContainer.innerHTML = '';
+
+    cart.forEach((item, index) => {
+      totalPrice += item.price * item.quantity;
+
+      const itemEl = document.createElement('div');
+      itemEl.className = 'cart-item';
+      itemEl.innerHTML = `
+        <img src="${item.img}" alt="${item.name}" />
+        <div class="item-info">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">$${item.price.toFixed(2)}</div>
+          <input type="number" class="quantity-input" min="1" value="${item.quantity}" 
+            onchange="updateQuantity(${index}, this.value)" aria-label="Quantity for ${item.name}">
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})" aria-label="Remove ${item.name}">Remove</button>
+      `;
+      cartContainer.appendChild(itemEl);
+    });
+
+    // Show total price
+    let totalEl = document.createElement('div');
+    totalEl.className = 'total-price';
+    totalEl.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    cartContainer.appendChild(totalEl);
+  }
+
+  // Update quantity of item
+  function updateQuantity(index, qty) {
+    qty = parseInt(qty);
+    if (isNaN(qty) || qty < 1) qty = 1;
+
+    let cart = JSON.parse(localStorage.getItem('toyCart')) || [];
+    cart[index].quantity = qty;
+    localStorage.setItem('toyCart', JSON.stringify(cart));
+    loadCart();
+  }
+
+  // Remove item from cart
+  function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('toyCart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('toyCart', JSON.stringify(cart));
+    loadCart();
+  }
+
+  // On checkout (for demo, just alert and clear cart)
+  function checkout() {
+    alert('Thank you for your purchase! 🎉');
+    localStorage.removeItem('toyCart');
+    loadCart();
+  }
+
+  // Back to home page redirect
+  function goHome() {
+    window.location.href = "index 3.html"; // Update this path if needed
+  }
+
+  // Load cart on page load
+  window.onload = loadCart;
+  function checkout() {
+
+  localStorage.removeItem('toyCart');
+  window.location.href = "index 5.html"; // redirect to thank you page
+}
+
+</script>
+
+
+</body>
+</html>
